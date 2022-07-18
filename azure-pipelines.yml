@@ -18,14 +18,19 @@ steps:
       # Additional properties that will be passed to the scanner, 
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
-            sonar.projectKey=DevOps_-_Testing_Pipeline_DevOps_-_Testing_Pipeline_AYH8wEzAIImPLsZAfYYJ
+      sonar.projectKey=DevOps_-_Testing_Pipeline_DevOps_-_Testing_Pipeline_AYH8wEzAIImPLsZAfYYJ
 - task: JavaToolInstaller@0
   inputs:
     versionSpec: '11' 
     jdkArchitectureOption:  x64
     jdkSourceOption: PreInstalled
 
-- task: SonarQubeAnalyze@5
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: http://sonarqube-java.upkar-openshift-seo01-b3c-162e406f043e20da9b0ef0731954a894-0000.seo01.containers.appdomain.cloud
+    scannerMode: Other
+    extraProperties: sonar.projectKey=DevOps_-_Testing_Pipeline_DevOps_-_Testing_Pipeline_AYH8wEzAIImPLsZAfYYJ
+
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
