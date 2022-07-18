@@ -26,6 +26,9 @@ steps:
     jdkSourceOption: PreInstalled
 
 - task: SonarQubeAnalyze@5
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
