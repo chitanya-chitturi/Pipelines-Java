@@ -27,7 +27,7 @@ steps:
 
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: http://sonarqube-java.upkar-openshift-seo01-b3c-162e406f043e20da9b0ef0731954a894-0000.seo01.containers.appdomain.cloud
+    SonarQube: springboot
     scannerMode: Other
     extraProperties: sonar.projectKey=DevOps_-_Testing_Pipeline_DevOps_-_Testing_Pipeline_AYH8wEzAIImPLsZAfYYJ
 
