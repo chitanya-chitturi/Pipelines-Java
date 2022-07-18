@@ -25,12 +25,7 @@ steps:
     jdkArchitectureOption:  x64
     jdkSourceOption: PreInstalled
 
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: springboot
-    scannerMode: Other
-    extraProperties: sonar.projectKey=DevOps_-_Testing_Pipeline_DevOps_-_Testing_Pipeline_AYH8wEzAIImPLsZAfYYJ
-
+- task: SonarQubeAnalyze@5
 - task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
