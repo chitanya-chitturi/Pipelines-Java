@@ -25,6 +25,7 @@ steps:
     jdkArchitectureOption:  x64
     jdkSourceOption: PreInstalled
 
+- task: SonarQubeAnalyze@5
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
