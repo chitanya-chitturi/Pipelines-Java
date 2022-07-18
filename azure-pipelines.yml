@@ -19,23 +19,14 @@ steps:
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
       sonar.projectKey=DevOps_-_Testing_Pipeline_DevOps_-_Testing_Pipeline_AYH8wEzAIImPLsZAfYYJ
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '11' 
-    jdkArchitectureOption:  x64
-    jdkSourceOption: PreInstalled
-
-- task: SonarQubeAnalyze@5
-- task: SonarQubePublish@5
-  inputs:
-    pollingTimeoutSec: '300'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    sonarQubeRunAnalysis: true
     goals: 'package'
+
+
